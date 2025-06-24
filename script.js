@@ -1,17 +1,12 @@
-   /* ARQUIVO: script.js */
-
-/* --- LÓGICA DO CARROSSEL AUTOMÁTICO --- */
 document.addEventListener('DOMContentLoaded', function() {
     const carouselSlide = document.querySelector('.carousel-slide');
     if (carouselSlide) {
         const images = carouselSlide.querySelectorAll('img');
         
-        if (images.length > 0) {
+        if (images.length > 1) {
             let counter = 0;
             const totalImages = images.length;
             
-            // Define a largura do slide para conter todas as imagens
-            const imageWidth = images[0].clientWidth; // Largura de uma imagem
             carouselSlide.style.width = `${totalImages * 100}%`;
 
             setInterval(() => {
@@ -20,14 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     counter = 0;
                 }
                 carouselSlide.style.transform = `translateX(-${(100 / totalImages) * counter}%)`;
-            }, 4000); // Muda de foto a cada 4 segundos
+            }, 4000);
         }
     }
 });
-/* --- FIM DA LÓGICA DO CARROSSEL --- */
 
-
-/* --- LÓGICA DO CONTADOR DE TEMPO --- */
 const dataInicioNamoro = '2025-01-25T00:00:00'; 
 
 const anosEl = document.getElementById('anos');
@@ -69,4 +61,4 @@ function atualizarContador() {
     if(segundosEl) segundosEl.innerText = formatarTempo(segundos);
 }
 
-setInterval(atualizarContador, 1000); 
+setInterval(atualizarContador, 1000);
